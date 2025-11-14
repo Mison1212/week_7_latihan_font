@@ -95,4 +95,16 @@ class BreakFastPage extends StatelessWidget {
     );
   }
 
+  // ============================================================
+  // SEARCH BAR
+  // ============================================================
+  Widget _buildSearchBar() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        color: Colors.white,
+      )
+    );
+    
+  }
 }
