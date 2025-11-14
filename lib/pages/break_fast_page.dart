@@ -89,7 +89,7 @@ class BreakFastPage extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 15),
-          // _buildPopularList(),
+          _buildPopularList(),
         ],
       ),
     );
@@ -260,4 +260,76 @@ class BreakFastPage extends StatelessWidget {
     );
   }
 
+  // ============================================================
+  // POPULAR LIST
+  // ============================================================
+  Widget _buildPopularList() {
+    final List<Map<String, String>> popular = [
+      {
+        "name": "Blueberry Pancake",
+        "detail": "Medium | 30mins | 230kCal",
+        "icons": "assets/icons/blueberry.svg",
+      },
+      {
+        "name": "Salmon Nigiri",
+        "detail": "Medium | 20mins | 120kCal",
+        "icons": "assets/icons/salmon.svg",
+      }
+    ];
+
+    return Column(
+      children: List.generate(popular.length, (index) {
+        return Container(
+          margin: const EdgeInsets.only(bottom: 20),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(22),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 12,
+                offset: Offset(0, 3),
+              )
+            ],
+          ),
+          child: Row(
+            children: [
+              SvgPicture.asset(popular[index]["icons"]!, height: 60),
+
+              const SizedBox(width: 12),
+
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      popular[index]["name"]!,
+                      style: const TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      popular[index]["detail"]!,
+                      style: const TextStyle(color: Colors.black54),
+                    ),
+                  ],
+                ),
+              ),
+
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xFFF0F0F0),
+                ),
+                child: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
+              )
+            ],
+          ),
+        );
+      }),
+    );
+  }
 }
+
