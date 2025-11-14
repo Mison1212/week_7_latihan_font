@@ -5,7 +5,6 @@ class SeparateListViewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final items = List.generate(10, (i) => "Item ke-${i + 1}");
 
     return Scaffold(
       appBar: AppBar(
@@ -13,36 +12,31 @@ class SeparateListViewPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.separated(
-        padding: const EdgeInsets.all(16),
-        itemCount: items.length,
-        separatorBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.symmetric(vertical: 6),
-          child: Divider(thickness: 1),
-        ),
-        itemBuilder: (context, index) {
-          return Card(
-            elevation: 1,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-              leading: CircleAvatar(
-                backgroundColor: Colors.blue.shade100,
-                child: const Icon(Icons.label, color: Colors.black87),
-              ),
-              title: Text(
-                items[index],
-                style: const TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              trailing: const Icon(Icons.more_horiz),
+        // jumlah item
+        itemCount: 5,
+        //pedding di sekitar list
+        padding: const EdgeInsets.all(16.0),
+        scrollDirection: Axis.vertical,
+        // Builder untuk setiap item
+        itemBuilder:(context, index) {
+          return Container(
+            height: 60,
+            color: Colors.blue[100],
+            child: Center(
+              child: Text('Item ${index + 1}', style: TextStyle(),),
             ),
           );
         },
-      ),
-    );
+        //builder untuk separator
+        separatorBuilder: (context, index) {
+          return Divider(
+            color: Colors.grey, thickness: 1);
+          
+          
+        },
+        ),
+
+      );
+    
   }
 }

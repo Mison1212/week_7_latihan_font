@@ -33,18 +33,18 @@ class _ListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 2,
-      color: Colors.blue, // 🔵 Card biru
+      color: Colors.blue, 
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-        child: Center( // ⬅️ Text di tengah
+        child: Center( 
           child: Text(
             title,
             textAlign: TextAlign.center,
             style: const TextStyle(
-              color: Colors.white, // ✨ Putih biar kontras dengan biru
+              color: Colors.white, 
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
