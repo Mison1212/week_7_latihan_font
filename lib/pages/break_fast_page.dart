@@ -77,6 +77,13 @@ class BreakFastPage extends StatelessWidget {
           const SizedBox(height: 15),
           // _buildCategoryList(),
           const SizedBox(height: 30),
+          const Text(
+            "Recommendation for Diet",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 15),
+          // _buildRecommendationBox(),
+          const SizedBox(height: 30),
         ],
       ),
     );
