@@ -83,8 +83,6 @@ flutter:
     - family: Robotomono
       fonts:
         - asset: assets/fonts/Robotomono/RobotoMono-Bold.ttf
-        - asset: assets/fonts/Robotomono/RobotoMono-Italic.ttf
-        - asset: assets/fonts/Robotomono/RobotoMono-Medium.ttf
         - asset: assets/fonts/Robotomono/RobotoMono-Regular.ttf
           weight: 700
   #

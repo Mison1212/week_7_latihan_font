@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_font/pages/homepage.dart';
-
+// import 'package:latihan_font/pages/homepage.dart';
+import 'package:latihan_font/pages/listview.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
         title: 'Custom Font',
         // set raleway as teh defult app font
         theme: ThemeData(fontFamily: "Raleway"),
-        home: const HomePage(),
+        home: const ListViewStaticPage(),
+
         debugShowCheckedModeBanner: false,
       );
     }
