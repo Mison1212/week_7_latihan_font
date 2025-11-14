@@ -25,8 +25,23 @@ class BreakFastPage extends StatelessWidget {
         "Breakfast",
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
       ),
-      // leading: _buildLeadingIcon(),
+      leading: _buildLeadingIcon(),
       // actions: [_buildRightIcon()],
+    );
+  }
+
+  Widget _buildLeadingIcon() {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        margin: const EdgeInsets.all(10),
+        alignment: Alignment.center,
+        child: SvgPicture.asset(
+          "assets/icons/back-navs.svg",
+          height: 32,
+          width: 32,
+        ),
+      ),
     );
   }
 
