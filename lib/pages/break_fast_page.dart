@@ -82,7 +82,7 @@ class BreakFastPage extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 15),
-          // _buildRecommendationBox(),
+          _buildRecommendationBox(),
           const SizedBox(height: 30),
           const Text(
             "Popular",
@@ -186,4 +186,78 @@ class BreakFastPage extends StatelessWidget {
     );
   
   }
+
+  // ============================================================
+  // RECOMMENDATION BOX (Responsive + Hover Button)
+  // ============================================================
+  Widget _buildRecommendationBox() {
+    final List<Map<String, String>> foods = [
+      {
+        "name": "Honey Pancake",
+        "detail": "Easy | 30mins | 180kCal",
+        "icons": "assets/icons/blueberry.svg",
+      },
+      {
+        "name": "Canai Bread",
+        "detail": "Easy | 20mins | 210kCal",
+        "icons": "assets/icons/vector1.svg",
+      }
+    ];
+
+    return SizedBox(
+      height: 260,
+      child: LayoutBuilder(builder: (context, constraint) {
+        double boxWidth = constraint.maxWidth * 0.55;
+
+        return ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: foods.length,
+          separatorBuilder: (_, __) => const SizedBox(width: 15),
+
+          itemBuilder: (context, index) {
+            bool even = index % 2 == 0;
+
+            return Container(
+              width: boxWidth,
+              padding: const EdgeInsets.all(18),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(22),
+                gradient: LinearGradient(
+                  colors: even
+                      ? [Color(0x339DCEFF), Color(0x3392A3FD)]
+                      : [Color(0x33FBC2EB), Color(0x33C58BF2)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+              ),
+
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SvgPicture.asset(foods[index]["icons"]!, height: 110),
+
+                  Text(
+                    foods[index]["name"]!,
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+
+                  Text(
+                    foods[index]["detail"]!,
+                    style: const TextStyle(color: Colors.black54, fontSize: 13),
+                  ),
+
+                  // HoverButton(
+                  //   text: "View",
+                  //   onPressed: () {},
+                  // ),
+                ],
+              ),
+            );
+          },
+        );
+      }),
+    );
+  }
+
 }
