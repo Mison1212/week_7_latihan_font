@@ -84,6 +84,12 @@ class BreakFastPage extends StatelessWidget {
           const SizedBox(height: 15),
           // _buildRecommendationBox(),
           const SizedBox(height: 30),
+          const Text(
+            "Popular",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 15),
+          // _buildPopularList(),
         ],
       ),
     );
