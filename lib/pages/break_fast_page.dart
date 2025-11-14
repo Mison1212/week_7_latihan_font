@@ -29,7 +29,7 @@ class BreakFastPage extends StatelessWidget {
       actions: [_buildRightIcon()],
     );
   }
-
+// Membuat Widget _buildLeadingIcon
   Widget _buildLeadingIcon() {
     return GestureDetector(
       onTap: () {},
@@ -55,6 +55,22 @@ class BreakFastPage extends StatelessWidget {
           height: 32,
           width: 32,
         ),
+      ),
+    );
+  }
+
+ // ============================================================
+  // BODY
+  // ============================================================
+  Widget _buildBody() {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // _buildSearchBar(),
+          const SizedBox(height: 25),
+        ],
       ),
     );
   }
