@@ -111,7 +111,24 @@ class BreakFastPage extends StatelessWidget {
           )
         ],
       ),
+        child: TextField(
+        decoration: InputDecoration(
+          hintText: "Search Pancake",
+          hintStyle: TextStyle(color: Colors.grey.shade500),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(12),
+            child: SvgPicture.asset("assets/icons/search.svg"),
+          ),
+          suffixIcon: Padding(
+            padding: const EdgeInsets.all(12),
+            child: SvgPicture.asset("assets/icons/filter.svg"),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(14),
+            borderSide: BorderSide.none,
+          ),
+      ),
+      )
       );
-    
   }
 }
