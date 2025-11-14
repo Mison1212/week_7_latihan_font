@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_font/pages/list_view_sparate_horizontal.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:latihan_font/pages/break_fast_page.dart';
+// import 'package:latihan_font/pages/list_view_sparate_horizontal.dart';
+// import 'package:flutter_svg/flutter_svg.dart'
 // import 'package:latihan_font/pages/homepage.dart';
 // import 'package:latihan_font/pages/listview.dart';
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'Custom Font',
         // set raleway as teh defult app font
         theme: ThemeData(fontFamily: "Raleway"),
-        home: const SeparateListViewHorizontalPage(),
+        home: const BreakFastPage(),
 
         debugShowCheckedModeBanner: false,
       );
