@@ -26,7 +26,7 @@ class BreakFastPage extends StatelessWidget {
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
       ),
       leading: _buildLeadingIcon(),
-      // actions: [_buildRightIcon()],
+      actions: [_buildRightIcon()],
     );
   }
 
@@ -38,6 +38,20 @@ class BreakFastPage extends StatelessWidget {
         alignment: Alignment.center,
         child: SvgPicture.asset(
           "assets/icons/back-navs.svg",
+          height: 32,
+          width: 32,
+        ),
+      ),
+    );
+  }
+// Membuat Widget _buildRightIcon
+  Widget _buildRightIcon() {
+    return GestureDetector(
+      onTap: () {},
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: SvgPicture.asset(
+          "assets/icons/detail-navs.svg",
           height: 32,
           width: 32,
         ),
