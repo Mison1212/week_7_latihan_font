@@ -70,6 +70,13 @@ class BreakFastPage extends StatelessWidget {
         children: [
           // _buildSearchBar(),
           const SizedBox(height: 25),
+          const Text(
+            "Category",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 15),
+          // _buildCategoryList(),
+          const SizedBox(height: 30),
         ],
       ),
     );
