@@ -103,8 +103,15 @@ class BreakFastPage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
         color: Colors.white,
-      )
-    );
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black,
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          )
+        ],
+      ),
+      );
     
   }
 }
