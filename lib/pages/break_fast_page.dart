@@ -247,10 +247,10 @@ class BreakFastPage extends StatelessWidget {
                     style: const TextStyle(color: Colors.black54, fontSize: 13),
                   ),
 
-                  // HoverButton(
-                  //   text: "View",
-                  //   onPressed: () {},
-                  // ),
+                  HoverButton(
+                    text: "View",
+                    onPressed: () {},
+                  ),
                 ],
               ),
             );
@@ -332,4 +332,89 @@ class BreakFastPage extends StatelessWidget {
     );
   }
 }
+/// ===================================================================
+/// HOVER BUTTON (WITH ANIMATION)
+/// ===================================================================
+/// Tombol dengan hover animasi:
+/// - Warna berubah ketika mouse hover
+/// - Warna berubah ketika tombol ditekan
+/// - Ada animasi smooth (AnimatedContainer)
+/// - Support Web, Desktop, dan Mobile (tanpa hover di mobile)
+class HoverButton extends StatefulWidget {
+  final VoidCallback onPressed;
+  final String text;
 
+  const HoverButton({
+    super.key,
+    required this.onPressed,
+    required this.text,
+  });
+
+  @override
+  State<HoverButton> createState() => _HoverButtonState();
+}
+
+class _HoverButtonState extends State<HoverButton> {
+  bool isHovered = false; // status hover
+  bool isPressed = false; // status ditekan
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      // Ketika pointer masuk area tombol
+      onEnter: (_) => setState(() => isHovered = true),
+
+      // Ketika pointer keluar area tombol
+      onExit: (_) => setState(() {
+        isHovered = false;
+        isPressed = false;
+      }),
+
+      child: GestureDetector(
+        onTapDown: (_) => setState(() => isPressed = true),
+        onTapUp: (_) => setState(() => isPressed = false),
+        onTapCancel: () => setState(() => isPressed = false),
+        onTap: widget.onPressed,
+
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 160),
+          height: 38,
+          width: 110,
+          alignment: Alignment.center,
+
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+
+            // Perubahan warna berdasarkan state
+            color: isPressed
+                ? const Color(0xFF6C7BFF) // ditekan
+                : isHovered
+                    ? const Color(0xFF92A3FD) // hover
+                    : const Color(0xFFE4E4E4), // normal
+
+            // Shadow muncul saat hover
+            boxShadow: isHovered
+                ? [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.15),
+                      blurRadius: 8,
+                      offset: const Offset(0, 3),
+                    )
+                  ]
+                : [],
+          ),
+
+          // Text tombol
+          child: Text(
+            widget.text,
+            style: TextStyle(
+              color: isHovered || isPressed ? Colors.white : Colors.black87,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+}
