@@ -8,8 +8,26 @@ class BreakFastPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: _buildAppBar(),
+      appBar: _buildAppBar(),
       // body: _buildBody(),
     );
   }
+
+  // ============================================================
+  // APPBAR
+  // ============================================================
+  AppBar _buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      centerTitle: true,
+      title: const Text(
+        "Breakfast",
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+      ),
+      // leading: _buildLeadingIcon(),
+      // actions: [_buildRightIcon()],
+    );
+  }
+
 }
