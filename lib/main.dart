@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:latihan_font/pages/list_view_sparate_horizontal.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 // import 'package:latihan_font/pages/homepage.dart';
 // import 'package:latihan_font/pages/listview.dart';
 void main() {
