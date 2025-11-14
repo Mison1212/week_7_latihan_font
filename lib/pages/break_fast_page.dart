@@ -9,7 +9,7 @@ class BreakFastPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: _buildAppBar(),
-      // body: _buildBody(),
+      body: _buildBody(),
     );
   }
 
@@ -68,14 +68,14 @@ class BreakFastPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // _buildSearchBar(),
+          _buildSearchBar(),
           const SizedBox(height: 25),
           const Text(
             "Category",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 15),
-          // _buildCategoryList(),
+          _buildCategoryList(),
           const SizedBox(height: 30),
           const Text(
             "Recommendation for Diet",
@@ -130,5 +130,60 @@ class BreakFastPage extends StatelessWidget {
       ),
       )
       );
+  }
+
+  // ============================================================
+  // CATEGORY LIST (Responsive)
+  // ============================================================
+  Widget _buildCategoryList() {
+    final List<Map<String, String>> categories = [
+      {"name": "Salad", "icon": "assets/icons/salad.svg"},
+      {"name": "Cake", "icon": "assets/icons/cake.svg"},
+      {"name": "Pie", "icon": "assets/icons/piee.svg"},
+      {"name": "Smoothie", "icon": "assets/icons/lemon.svg"},
+    ];
+
+    return SizedBox(
+      height: 100,
+      child: LayoutBuilder(builder: (context, constraints) {
+        double itemWidth = constraints.maxWidth * 0.22;
+
+        return ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: categories.length,
+          separatorBuilder: (_, __) => const SizedBox(width: 15),
+
+          itemBuilder: (context, index) {
+            bool even = index % 2 == 0;
+
+            return Container(
+              width: itemWidth,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                gradient: LinearGradient(
+                  colors: even
+                      ? [Color(0x33B5D5FF), Color(0x333B8BFF)]
+                      : [Color(0x33FFB6C1), Color(0x33FBC2EB)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(categories[index]["icon"]!, height: 32),
+                  const SizedBox(height: 6),
+                  Text(
+                    categories[index]["name"]!,
+                    style: const TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      }),
+    );
+  
   }
 }
