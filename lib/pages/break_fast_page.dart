@@ -201,6 +201,16 @@ class BreakFastPage extends StatelessWidget {
         "name": "Canai Bread",
         "detail": "Easy | 20mins | 210kCal",
         "icons": "assets/icons/vector1.svg",
+      },
+      {
+        "name": "Honey Dimas",
+        "detail": "Easy | 30mins | 180kCal",
+        "icons": "assets/icons/blueberry.svg",
+      },
+      {
+        "name": "Canai Cendy",
+        "detail": "Easy | 20mins | 210kCal",
+        "icons": "assets/icons/vector1.svg",
       }
     ];
 
