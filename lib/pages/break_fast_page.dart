@@ -34,30 +34,37 @@ class BreakFastPage extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        margin: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(6),
         alignment: Alignment.center,
         child: SvgPicture.asset(
-          "assets/icons/back-navs.svg",
+          "assets/icons/arrow-left.svg",
           height: 32,
           width: 32,
         ),
       ),
     );
   }
-// Membuat Widget _buildRightIcon
-  Widget _buildRightIcon() {
-    return GestureDetector(
-      onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.all(8),
-        child: SvgPicture.asset(
-          "assets/icons/detail-navs.svg",
-          height: 32,
-          width: 32,
+Widget _buildRightIcon() {
+  return GestureDetector(
+    onTap: () {},
+    child: Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: Colors.black26,
+          width: 1.5,
         ),
       ),
-    );
-  }
+      child: SvgPicture.asset(
+        "assets/icons/icons8-menu.svg",
+        height: 18,
+        width: 18,
+      ),
+    ),
+  );
+}
+
 
  // ============================================================
   // BODY
@@ -137,10 +144,10 @@ class BreakFastPage extends StatelessWidget {
   // ============================================================
   Widget _buildCategoryList() {
     final List<Map<String, String>> categories = [
-      {"name": "Salad", "icon": "assets/icons/salad.svg"},
-      {"name": "Cake", "icon": "assets/icons/cake.svg"},
-      {"name": "Pie", "icon": "assets/icons/piee.svg"},
-      {"name": "Smoothie", "icon": "assets/icons/lemon.svg"},
+      {"name": "Salad", "icon": "assets/icons/plate.svg"},
+      {"name": "Cake", "icon": "assets/icons/pancakes.svg"},
+      {"name": "Pie", "icon": "assets/icons/pie.svg"},
+      {"name": "Smoothie", "icon": "assets/icons/orange-snacks.svg"},
     ];
 
     return SizedBox(
@@ -195,22 +202,22 @@ class BreakFastPage extends StatelessWidget {
       {
         "name": "Honey Pancake",
         "detail": "Easy | 30mins | 180kCal",
-        "icons": "assets/icons/blueberry.svg",
+        "icons": "assets/icons/honey-pancakes.svg",
       },
       {
         "name": "Canai Bread",
         "detail": "Easy | 20mins | 210kCal",
-        "icons": "assets/icons/vector1.svg",
+        "icons": "assets/icons/canai-bread.svg",
       },
       {
         "name": "Honey Dimas",
         "detail": "Easy | 30mins | 180kCal",
-        "icons": "assets/icons/blueberry.svg",
+        "icons": "assets/icons/honey-pancakes.svg",
       },
       {
         "name": "Canai Cendy",
         "detail": "Easy | 20mins | 210kCal",
-        "icons": "assets/icons/vector1.svg",
+        "icons": "assets/icons/canai-bread.svg",
       }
     ];
 
@@ -280,13 +287,13 @@ class BreakFastPage extends StatelessWidget {
         
         "name": "Blueberry Pancake",
         "detail": "Medium | 30mins | 230kCal",
-        "icons": "assets/icons/blueberry.svg",
+        "icons": "assets/icons/blueberry-pancake.svg",
 
       },
       {
         "name": "Salmon Nigiri",
         "detail": "Medium | 20mins | 120kCal",
-        "icons": "assets/icons/salmon.svg",
+        "icons": "assets/icons/salmon-nigiri.svg",
       }
     ];
 
@@ -298,7 +305,7 @@ class BreakFastPage extends StatelessWidget {
   decoration: BoxDecoration(
     borderRadius: BorderRadius.circular(22),
 
-    // ✨ Gunakan kondisi boxIsSelected
+    //Gunakan kondisi boxIsSelected
     color: popular[index]["boxIsSelected"] == true
         ? const Color(0xFFDFFFE0) // warna saat dipilih
         : Colors.white,
