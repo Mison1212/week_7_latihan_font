@@ -117,11 +117,11 @@ class BreakFastPage extends StatelessWidget {
           hintStyle: TextStyle(color: Colors.grey.shade500),
           prefixIcon: Padding(
             padding: const EdgeInsets.all(12),
-            child: SvgPicture.asset("assets/icons/search.svg"),
+            child: SvgPicture.asset("assets/icons/Search.svg"),
           ),
           suffixIcon: Padding(
             padding: const EdgeInsets.all(12),
-            child: SvgPicture.asset("assets/icons/filter.svg"),
+            child: SvgPicture.asset("assets/icons/Filter.svg"),
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
@@ -275,10 +275,13 @@ class BreakFastPage extends StatelessWidget {
   // ============================================================
   Widget _buildPopularList() {
     final List<Map<String, String>> popular = [
+      
       {
+        
         "name": "Blueberry Pancake",
         "detail": "Medium | 30mins | 230kCal",
         "icons": "assets/icons/blueberry.svg",
+
       },
       {
         "name": "Salmon Nigiri",
@@ -290,54 +293,67 @@ class BreakFastPage extends StatelessWidget {
     return Column(
       children: List.generate(popular.length, (index) {
         return Container(
-          margin: const EdgeInsets.only(bottom: 20),
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 12,
-                offset: Offset(0, 3),
-              )
-            ],
-          ),
-          child: Row(
-            children: [
-              SvgPicture.asset(popular[index]["icons"]!, height: 60),
+  margin: const EdgeInsets.only(bottom: 20),
+  padding: const EdgeInsets.all(16),
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(22),
 
-              const SizedBox(width: 12),
+    // ✨ Gunakan kondisi boxIsSelected
+    color: popular[index]["boxIsSelected"] == true
+        ? const Color(0xFFDFFFE0) // warna saat dipilih
+        : Colors.white,
 
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      popular[index]["name"]!,
-                      style: const TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.w600),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      popular[index]["detail"]!,
-                      style: const TextStyle(color: Colors.black54),
-                    ),
-                  ],
-                ),
-              ),
+    border: Border.all(
+      color: popular[index]["boxIsSelected"] == true
+          ? Colors.green
+          : Colors.transparent,
+      width: 2,
+    ),
 
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color(0xFFF0F0F0),
-                ),
-                child: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
-              )
-            ],
-          ),
-        );
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black12,
+        blurRadius: 12,
+        offset: const Offset(0, 3),
+      )
+    ],
+  ),
+  child: Row(
+    children: [
+      SvgPicture.asset(popular[index]["icons"]!, height: 60),
+
+      const SizedBox(width: 12),
+
+      Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              popular[index]["name"]!,
+              style: const TextStyle(
+                  fontSize: 15, fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              popular[index]["detail"]!,
+              style: const TextStyle(color: Colors.black54),
+            ),
+          ],
+        ),
+      ),
+
+      Container(
+        padding: const EdgeInsets.all(8),
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          color: Color(0xFFF0F0F0),
+        ),
+        child: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
+      )
+    ],
+  ),
+);
+
       }),
     );
   }

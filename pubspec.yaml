@@ -61,18 +61,19 @@ flutter:
   assets:
     # - images/a_dot_burr.jpeg
     - assets/images/Screenshot 2025-11-19 084345.png
-    - assets/icons/back-navs.svg
-    - assets/icons/blueberry.svg
-    - assets/icons/buttonkanan.svg
-    - assets/icons/cake.svg
-    - assets/icons/detail-navs.svg
-    - assets/icons/filter.svg
-    - assets/icons/lemon.svg
-    - assets/icons/piee.svg
-    - assets/icons/salad.svg
-    - assets/icons/salmon.svg
-    - assets/icons/search.svg
-    - assets/icons/vector1.svg
+    - assets/icons/arrow-left.svg
+    - assets/icons/blueberry-pancake.svg
+    - assets/icons/button.svg
+    - assets/icons/canai-bread.svg
+    - assets/icons/dots.svg
+    - assets/icons/Filter.svg
+    - assets/icons/honey-pancakes.svg
+    - assets/icons/orange-snacks.svg
+    - assets/icons/pancakes.svg
+    - assets/icons/pie.svg
+    - assets/icons/plate.svg
+    - assets/icons/salmon-nigiri.svg
+    - assets/icons/Search.svg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
